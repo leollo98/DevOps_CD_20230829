@@ -1,12 +1,12 @@
 resource "aws_s3_bucket" "beanstalk_deploys" {
-  bucket = "${var.nome}-deplays"
+  bucket = "${var.nome}-deploys"
 }
 
 resource "aws_s3_bucket_object" "docker" {
     depends_on = [
       aws_s3_bucket.beanstalk_deploys
     ]
-  bucket = "${var.nome}-deplays"
+  bucket = "${var.nome}-deploys"
   key    = "${var.nome}.zip"
   source = "${var.nome}.zip"
   # The filemd5() function is available in Terraform 0.11.12 and later
